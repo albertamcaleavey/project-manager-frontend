@@ -18,7 +18,7 @@ const BASE_URL = `${process.env.REACT_APP_API_URL}/api/projects/`
 //   }
 // }
 
-export const create = project => {
+function create(project) {
   try {
     return fetch(BASE_URL, {
       method: "POST",
@@ -35,4 +35,14 @@ export const create = project => {
   }
 }
 
-// get projects into state
+// get all projects into state
+function getAll() {
+    return fetch(BASE_URL)
+    .then(res => res.json())
+}
+
+export {
+  getAll,
+  create,
+
+}

@@ -15,18 +15,21 @@ const App = () => {
   const [projects, setProjects] = useState([])
 
   const navigate = useNavigate()
-  
-  // const handleAddProject = async (newProjectData) => {
-  //   const project = await projectService.create(newProjectData)
-  //   setProjects([...projects, project])
-  // }
 
+  //--------------------------------------------
+  // add created projects to the database 
   const handleAddProject = newProjectData => {
     projectService.create(newProjectData)
     .then(newProject => setProjects([...projects, newProject]))
   }
 
+  // get all projects when component is loaded and save them to state 
+  useEffect(() => {
+    projectService.getAll()
+    .then(allProjects => setProjects(allProjects))
+  }, [])
 
+//--------------------------------------------
   const handleLogout = () => {
     authService.logout()
     setUser(null)
