@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
 
 import * as authService from './services/authService'
+import * as projectService from './services/projectService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
@@ -15,9 +16,16 @@ const App = () => {
 
   const navigate = useNavigate()
   
+  // const handleAddProject = async (newProjectData) => {
+  //   const project = await projectService.create(newProjectData)
+  //   setProjects([...projects, project])
+  // }
+
   const handleAddProject = newProjectData => {
-    setProjects([...projects, newProjectData])
+    projectService.create(newProjectData)
+    .then(newProject => setProjects([...projects, newProject]))
   }
+
 
   const handleLogout = () => {
     authService.logout()
@@ -48,7 +56,8 @@ const App = () => {
         />
         <Route
         path="/add-project"
-        element={<AddProjectForm handleAddProject={handleAddProject} />}
+        element={<AddProjectForm handleAddProject={handleAddProject}
+        />}
         />
       </Routes>
     </>
