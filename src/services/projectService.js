@@ -37,12 +37,27 @@ function create(project) {
 
 // get all projects into state
 function getAll() {
+  try {
     return fetch(BASE_URL)
     .then(res => res.json())
+  } catch (error) {
+    throw error
+  }
+}
+
+// get one project
+function getOne(id) {
+  try {
+    return fetch(`${BASE_URL}${id}`)
+    .then(res => res.json())
+  } catch (error) {
+    throw error
+  }
 }
 
 export {
   getAll,
   create,
+  getOne,
 
 }

@@ -6,6 +6,7 @@ import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
+import ProjectList from './pages/ProjectList/ProjectList'
 
 import * as authService from './services/authService'
 import * as projectService from './services/projectService'
@@ -28,6 +29,10 @@ const App = () => {
     projectService.getAll()
     .then(allProjects => setProjects(allProjects))
   }, [])
+
+//--------------------------------------------
+
+
 
 //--------------------------------------------
   const handleLogout = () => {
@@ -61,6 +66,11 @@ const App = () => {
         path="/add-project"
         element={<AddProjectForm handleAddProject={handleAddProject}
         />}
+        />
+        <Route
+        path="/projects"
+        element={<ProjectList 
+        projects={projects} />}
         />
       </Routes>
     </>
