@@ -11,8 +11,13 @@ import * as authService from './services/authService'
 
 const App = () => {
   const [user, setUser] = useState(authService.getUser())
+  const [projects, setProjects] = useState([])
+
   const navigate = useNavigate()
-  console.log(user)
+  
+  const handleAddProject = newProjectData => {
+    setProjects([...projects, newProjectData])
+  }
 
   const handleLogout = () => {
     authService.logout()
@@ -43,7 +48,7 @@ const App = () => {
         />
         <Route
         path="/add-project"
-        element={<AddProjectForm />}
+        element={<AddProjectForm handleAddProject={handleAddProject} />}
         />
       </Routes>
     </>
