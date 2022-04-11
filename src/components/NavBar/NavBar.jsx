@@ -1,4 +1,5 @@
 import { Link } from 'react-router-dom'
+import './NavBar.css'
 
 const NavBar = ({ user, handleLogout }) => {
   return (
@@ -6,9 +7,9 @@ const NavBar = ({ user, handleLogout }) => {
       {user ?
         <nav>
           <ul>
-            <li>Welcome, {user.name}</li>
-            <li><Link to="/profiles">Profiles</Link></li>
-            <li><Link to="" onClick={handleLogout}>LOG OUT</Link></li>
+            <li>Hi, {user.name}</li>
+            {/* <li><Link to="/profiles">Profiles</Link></li> */}
+            <li><Link to="" onClick={handleLogout}>Log Out</Link></li>
           </ul>
         </nav>
       :
