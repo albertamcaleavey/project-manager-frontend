@@ -7,7 +7,6 @@ import { getOne, addTask } from '../../services/projectService'
 const ProjectDetails = (props) => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
-  // console.log(project)
 
   useEffect(() => {
     const fetchOne = async () => {
@@ -16,7 +15,7 @@ const ProjectDetails = (props) => {
     }
     fetchOne()
   }, [id])
-  
+
   return (  
     <>
     <h1>project details</h1>
