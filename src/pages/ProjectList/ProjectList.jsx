@@ -1,11 +1,12 @@
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Link } from "react-router-dom";
+import './ProjectList.css'
 
 const ProjectList = (props) => {
   return (  
     <>
     <h1>Projects</h1>
-    <div>
+    <div className="project-list-container">
       {props.projects.map((project) => (
         <ProjectCard
         key={project.id}
@@ -14,7 +15,7 @@ const ProjectList = (props) => {
       ))}
     </div>
     <Link to={'/add-project'}>
-    <button>+</button>
+    <button className="add-project-btn">+</button>
     </Link>
     </>
   );
