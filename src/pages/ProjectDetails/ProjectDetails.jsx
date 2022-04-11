@@ -1,8 +1,8 @@
 import TaskCard from "./components/TaskCard";
 import AddTaskForm from "./components/AddTaskForm";
 import { useParams } from "react-router-dom";
-import { getOne } from '../../services/projectService'
 import { useEffect, useState } from 'react'
+import { getOne, addTask } from '../../services/projectService'
 
 const ProjectDetails = (props) => {
   const { id } = useParams()
@@ -20,7 +20,7 @@ const ProjectDetails = (props) => {
   return (  
     <>
     <h1>project details</h1>
-    < AddTaskForm />
+    <AddTaskForm project={project} setProject={setProject} />
     <div>
       <TaskCard project={project}/>
     </div>

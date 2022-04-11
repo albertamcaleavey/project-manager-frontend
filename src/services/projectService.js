@@ -56,9 +56,9 @@ function getOne(id) {
 }
 
 // add task
-function addTask(id, data) {
+export const addTask = async (id, data) => {
   try {
-    return fetch(`${BASE_URL}${id}/feedings`, {
+    const res = await fetch(`${BASE_URL}${id}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,7 +66,7 @@ function addTask(id, data) {
       },
       body: JSON.stringify(data),
     })
-    .then(res => res.json())
+    return await res.json()
   } catch (error) {
     throw error
   }
@@ -75,7 +75,5 @@ function addTask(id, data) {
 export {
   getAll,
   create,
-  getOne,
-  addTask,
-  
+  getOne,  
 }

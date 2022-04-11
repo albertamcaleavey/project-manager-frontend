@@ -9,15 +9,15 @@ const initialState = {
 const AddTaskForm = ({project, setProject}) => {
   const [formData, setFormData] = useState(initialState)
 
-  const addToProject = evt => {
-    evt.preventDefault()
-    const newTask = addTask(project.id, formData)
+  const addToProject = async (e) => {
+    e.preventDefault()
+    const newTask = await addTask(project.project.id, formData)
     setProject(newTask)
-    setFormData('')
+    setFormData(initialState)
   }
 
-  const handleChange = evt => {
-    setFormData({...formData, [evt.target.name]: evt.target.value})
+  const handleChange = (e) => {
+    setFormData({ ...formData, [e.target.name]: e.target.value })
   }
   return ( 
     <>
@@ -28,7 +28,7 @@ const AddTaskForm = ({project, setProject}) => {
           task description
         </label>
         <input 
-        type="textarea"
+        type="text"
         name='description'
         onChange={handleChange}
         required
