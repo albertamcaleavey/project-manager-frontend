@@ -1,15 +1,14 @@
 import { Link } from 'react-router-dom'
+import './ProjectCard.css'
 
 const ProjectCard = ({project}) => {
-  return (  
+  return ( 
     <Link 
     to={`${project.id}`}
     >
-    <div>
-    <div>
-      <h6>{project.deadline}</h6>
-    </div>
-      <h3>{project.name}</h3>
+    <div className='projectcard-container'>
+    <div className='project-deadline'>{project.deadline}</div>
+    <div className='project-name'>{project.name}</div>
     </div>
     </Link>
   );

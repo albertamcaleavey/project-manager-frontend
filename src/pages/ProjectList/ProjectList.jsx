@@ -4,7 +4,7 @@ import './ProjectList.css'
 
 const ProjectList = (props) => {
   return (  
-    <>
+    <main>
     <h1>Projects</h1>
     <div className="project-list-container">
       {props.projects.map((project) => (
@@ -17,7 +17,7 @@ const ProjectList = (props) => {
     <Link to={'/add-project'}>
     <button className="add-project-btn">+</button>
     </Link>
-    </>
+    </main>
   );
 }
  

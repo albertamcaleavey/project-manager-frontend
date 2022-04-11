@@ -1,8 +1,12 @@
 .add-project-btn{
-  background-color: rgb(59, 116, 231);
+  background-color: rgb(79,129,254);
   border-radius: 50%;
   border: 0;
   color: white;
   font-size: x-large;
   padding: 0 2%;
+}
+
+main {
+  margin: 4%;
 }
