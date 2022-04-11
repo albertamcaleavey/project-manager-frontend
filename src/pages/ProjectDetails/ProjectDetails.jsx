@@ -7,7 +7,18 @@ import { getOne } from '../../services/projectService'
 const ProjectDetails = ({handleDeleteProject}) => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
-  console.log(project)
+  const [checkbox, setCheckbox] = useState(false)
+
+  const handleInputChange = (event) => {
+    const target = event.target;
+    const value = target.type === 'checkbox' ? target.checked : target.value;
+    const name = target.name;
+
+    setCheckbox({
+      [name]: value
+    });
+  }
+
   useEffect(() => {
     const fetchOne = async () => {
       getOne(id)
@@ -16,6 +27,8 @@ const ProjectDetails = ({handleDeleteProject}) => {
     fetchOne()
   }, [id])
 
+  console.log(project?.project?.task)
+
   return (  
     <>
     <h1>project details</h1>
@@ -23,8 +36,18 @@ const ProjectDetails = ({handleDeleteProject}) => {
     onClick={() => handleDeleteProject(project?.project?.id)}
     >delete</button>
     <AddTaskForm project={project} setProject={setProject} />
+
     <div>
-      <TaskCard project={project}/>
+      {project?.project?.tasks?.map((task)=> (
+        <div key={project.id}>
+        <label htmlFor="checkbox-input">complete?</label>
+        <input type="checkbox" />
+        <TaskCard 
+        task={task}
+        />
+        </div>
+        
+      ))}      
     </div>
     </>
   );

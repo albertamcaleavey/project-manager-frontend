@@ -3,7 +3,7 @@ import { addTask } from '../../../services/projectService'
 const initialState = {
   description: '',
   date: '2022/04/10',
-  complete: false
+  complete: 'false'
 }
 
 const AddTaskForm = ({project, setProject}) => {
@@ -46,16 +46,17 @@ const AddTaskForm = ({project, setProject}) => {
           required
           />
       </div>
-          <div>
+          {/* <div>
             <label htmlFor="checkbox-input">
               complete?
             </label>
               <input 
               type="checkbox"
               name='complete'
+              value='false'
               onChange={handleChange}
               />
-          </div>
+          </div> */}
           <button type="submit">add task</button>
     </form>
     </>
