@@ -7,6 +7,7 @@ import Landing from './pages/Landing/Landing'
 import Profiles from './pages/Profiles/Profiles'
 import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
 import ProjectList from './pages/ProjectList/ProjectList'
+import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
 
 import * as authService from './services/authService'
 import * as projectService from './services/projectService'
@@ -71,6 +72,10 @@ const App = () => {
         path="/projects"
         element={<ProjectList 
         projects={projects} />}
+        />
+        <Route
+        path="/projects/:id"
+        element={<ProjectDetails />}
         />
       </Routes>
     </>

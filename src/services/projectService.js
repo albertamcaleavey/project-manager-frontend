@@ -55,9 +55,27 @@ function getOne(id) {
   }
 }
 
+// add task
+function addTask(id, data) {
+  try {
+    return fetch(`${BASE_URL}${id}/feedings`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        'Authorization': `Bearer ${tokenService.getToken()}`
+      },
+      body: JSON.stringify(data),
+    })
+    .then(res => res.json())
+  } catch (error) {
+    throw error
+  }
+}
+
 export {
   getAll,
   create,
   getOne,
-
+  addTask,
+  
 }
