@@ -1,21 +1,28 @@
 import { useState } from 'react'
 import { addTask } from '../../../services/projectService'
+const initialState = {
+  description: '',
+  date: '2022/04/10',
+  complete: false
+}
 
-const AddTaskForm = () => {
-  const [formData, setFormData] = useState({
-    description: '',
-    date: '2022/04/10',
-    complete: false
-  })
+const AddTaskForm = ({project, setProject}) => {
+  const [formData, setFormData] = useState(initialState)
 
-  const handleAddTask = evt => {
+  const addToProject = evt => {
     evt.preventDefault()
-    addTask()
+    const newTask = addTask(project.id, formData)
+    setProject(newTask)
+    setFormData('')
+  }
+
+  const handleChange = evt => {
+    setFormData({...formData, [evt.target.name]: evt.target.value})
   }
   return ( 
     <>
     <h1>add task form</h1>
-    <form autoComplete='off'>
+    <form autoComplete='off' onSubmit={addToProject}>
       <div>
         <label htmlFor="description-input">
           task description
@@ -23,6 +30,7 @@ const AddTaskForm = () => {
         <input 
         type="textarea"
         name='description'
+        onChange={handleChange}
         required
         />
       </div>
@@ -33,8 +41,10 @@ const AddTaskForm = () => {
           <input 
           type="date"
           name='date'
+          onChange={handleChange}
           required
           />
+      </div>
           <div>
             <label htmlFor="checkbox-input">
               complete?
@@ -42,12 +52,10 @@ const AddTaskForm = () => {
               <input 
               type="checkbox"
               name='complete'
+              onChange={handleChange}
               />
-            
           </div>
-        
-      </div>
-
+          <button type="submit">add task</button>
     </form>
     </>
    );

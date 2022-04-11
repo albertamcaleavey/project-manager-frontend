@@ -23,6 +23,7 @@ const App = () => {
   const handleAddProject = newProjectData => {
     projectService.create(newProjectData)
     .then(newProject => setProjects([...projects, newProject]))
+    navigate('/projects')
   }
 
   // get all projects when component is loaded and save them to state 
