@@ -1,9 +1,10 @@
 import ProjectCard from "../../components/ProjectCard/ProjectCard";
+import { Link } from "react-router-dom";
 
 const ProjectList = (props) => {
   return (  
     <>
-    <h1>project list</h1>
+    <h1>Projects</h1>
     <div>
       {props.projects.map((project) => (
         <ProjectCard
@@ -12,6 +13,9 @@ const ProjectList = (props) => {
         />
       ))}
     </div>
+    <Link to={'/add-project'}>
+    <button>+</button>
+    </Link>
     </>
   );
 }

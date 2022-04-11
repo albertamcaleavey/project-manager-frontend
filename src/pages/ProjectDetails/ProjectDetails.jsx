@@ -7,17 +7,15 @@ import { getOne } from '../../services/projectService'
 const ProjectDetails = ({handleDeleteProject}) => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
-  const [checkbox, setCheckbox] = useState(false)
 
-  const handleInputChange = (event) => {
-    const target = event.target;
-    const value = target.type === 'checkbox' ? target.checked : target.value;
-    const name = target.name;
+  // let renderAddTaskForm = false
+  
+  // function handleBtnClick() {
+  //   renderAddTaskForm = true
+  //   console.log(renderAddTaskForm)
+  // }
+  // console.log(renderAddTaskForm)
 
-    setCheckbox({
-      [name]: value
-    });
-  }
 
   useEffect(() => {
     const fetchOne = async () => {
@@ -27,7 +25,6 @@ const ProjectDetails = ({handleDeleteProject}) => {
     fetchOne()
   }, [id])
 
-  console.log(project?.project?.task)
 
   return (  
     <>
@@ -35,15 +32,26 @@ const ProjectDetails = ({handleDeleteProject}) => {
     <button 
     onClick={() => handleDeleteProject(project?.project?.id)}
     >delete</button>
+
+    {/* <button onClick={handleBtnClick()}>add task</button>
+    {renderAddTaskForm === false ? '' : 
+    } */}
     <AddTaskForm project={project} setProject={setProject} />
+    
 
     <div>
       {project?.project?.tasks?.map((task)=> (
-        <div key={project.id}>
-        <label htmlFor="checkbox-input">complete?</label>
-        <input type="checkbox" />
+        <div key={task.id}>
+        {/* <label htmlFor="checkbox-input">complete?</label>
+        <input 
+        onClick={handleClick}
+        type="checkbox"
+        name="complete"
+        value={false}
+        /> */}
         <TaskCard 
         task={task}
+        project={project}
         />
         </div>
         
