@@ -11,7 +11,7 @@ const AddTaskForm = ({project, setProject}) => {
 
   const addToProject = async (e) => {
     e.preventDefault()
-    const newTask = await addTask(project.project.id, formData)
+    const newTask = await addTask(project?.project?.id, formData)
     setProject(newTask)
     setFormData(initialState)
   }

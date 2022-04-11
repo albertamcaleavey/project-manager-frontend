@@ -34,7 +34,11 @@ const App = () => {
 
 //--------------------------------------------
 
-
+const handleDeleteProject = async (id) => {
+  await projectService.deleteOne(id)
+	setProjects(projects.filter(project => project.id !== parseInt(id)))
+  navigate('/projects')
+}
 
 //--------------------------------------------
   const handleLogout = () => {
@@ -76,7 +80,7 @@ const App = () => {
         />
         <Route
         path="/projects/:id"
-        element={<ProjectDetails />}
+        element={<ProjectDetails handleDeleteProject={handleDeleteProject} />}
         />
       </Routes>
     </>

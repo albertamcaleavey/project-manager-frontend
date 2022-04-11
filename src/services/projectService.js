@@ -72,6 +72,18 @@ export const addTask = async (id, data) => {
   }
 }
 
+export const deleteOne = async (id) => {
+  try {
+    const res = await fetch(`${BASE_URL}${id}`, {
+      method: "DELETE",
+      headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
+    })
+    return await res.json()
+  } catch (error) {
+    throw error
+  }
+}
+
 export {
   getAll,
   create,
