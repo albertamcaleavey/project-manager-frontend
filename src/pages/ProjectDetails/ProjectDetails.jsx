@@ -3,6 +3,7 @@ import AddTaskForm from "./components/AddTaskForm";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { getOne } from '../../services/projectService'
+import './ProjectDetails.css'
 
 const ProjectDetails = ({handleDeleteProject}) => {
   const { id } = useParams()
@@ -28,10 +29,10 @@ const ProjectDetails = ({handleDeleteProject}) => {
 
   return (  
     <>
-    <h1>project details</h1>
-    <button 
+    <button
+    className="delete-btn" 
     onClick={() => handleDeleteProject(project?.project?.id)}
-    >delete</button>
+    >🗑</button>
 
     {/* <button onClick={handleBtnClick()}>add task</button>
     {renderAddTaskForm === false ? '' : 

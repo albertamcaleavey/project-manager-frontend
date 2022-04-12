@@ -1,5 +1,7 @@
 import { useState } from 'react'
 import { addTask } from '../../../services/projectService'
+import './AddTaskForm.css'
+
 const initialState = {
   description: '',
   date: '2022/04/10',
@@ -22,14 +24,14 @@ const AddTaskForm = ({project, setProject}) => {
 
   return ( 
     <>
-    <h1>add task form</h1>
-    <form autoComplete='off' onSubmit={addToProject}>
-      <div>
+    <form className='add-task-form' autoComplete='off' onSubmit={addToProject}>
+      <div className='task-description'>
         <label htmlFor="description-input">
-          task description
         </label>
         <input 
-        type="text"
+        placeholder='Add a new task'
+        type="textarea"
+        size={38}
         name='description'
         onChange={handleChange}
         required
@@ -37,7 +39,7 @@ const AddTaskForm = ({project, setProject}) => {
       </div>
       <div>
         <label htmlFor="date-input">
-          scheduled date of task
+          Scheduled for
           </label>
           <input 
           type="date"
@@ -57,7 +59,7 @@ const AddTaskForm = ({project, setProject}) => {
               onChange={handleChange}
               />
           </div> */}
-          <button type="submit">add task</button>
+          <button type="submit">Add</button>
     </form>
     </>
    );

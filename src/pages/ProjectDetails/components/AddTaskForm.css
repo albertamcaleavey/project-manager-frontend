@@ -1,0 +1,25 @@
+.add-task-form {
+  display: grid;
+}
+
+.add-task-form div {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-items: center;
+  margin: 2%;
+}
+
+.task-description {
+  border-bottom: 1px solid black;
+}
+
+.add-task-form label {
+  font-size: small;
+  color: grey;
+}
+
+.add-task-form input {
+  border: 0;
+  font-size: large;
+}
