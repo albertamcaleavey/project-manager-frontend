@@ -1,12 +1,13 @@
 import TaskCard from "./components/TaskCard";
 import AddTaskForm from "./components/AddTaskForm";
-import { useParams } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { getOne } from '../../services/projectService'
 import './ProjectDetails.css'
 
-const ProjectDetails = ({handleDeleteProject}) => {
+const ProjectDetails = () => {
   const { id } = useParams()
+  const navigate = useNavigate()
   const [project, setProject] = useState(null)
   const [formVisibility, setformVisibility] = useState(false)
   const [btnVisibility, setBtnVisibility] = useState(true)
@@ -28,10 +29,18 @@ const ProjectDetails = ({handleDeleteProject}) => {
   return (  
     <main>
 
-    <button
+    {/* <button
     className="delete-btn" 
     onClick={() => handleDeleteProject(project?.id)}
+    >🗑</button> */}
+
+<button
+    className="delete-btn" 
+    onClick={() => navigate(`/projects/${project?.id}/confirmation`, { state: project })}
     >🗑</button>
+    
+
+
 
     {formVisibility ? 
     <AddTaskForm 

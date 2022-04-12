@@ -8,6 +8,7 @@ import Profiles from './pages/Profiles/Profiles'
 import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
 import ProjectList from './pages/ProjectList/ProjectList'
 import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
+import DeleteConfirmation from './pages/DeleteConfirmation/DeleteConfirmation'
 
 import * as authService from './services/authService'
 import * as projectService from './services/projectService'
@@ -80,8 +81,11 @@ const handleDeleteProject = async (id) => {
         />
         <Route
         path="/projects/:id"
-        element={ user ? <ProjectDetails handleDeleteProject={handleDeleteProject} /> : <Navigate to="/login" />}
+        element={ user ? <ProjectDetails /> : <Navigate to="/login" />}
         />
+        <Route 
+        path="/projects/:id/confirmation" element={ user ? <DeleteConfirmation handleDeleteProject={handleDeleteProject} user={user} /> : <Navigate to="/login" />
+          } />
       </Routes>
     </>
   )
