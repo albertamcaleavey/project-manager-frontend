@@ -8,15 +8,12 @@ import './ProjectDetails.css'
 const ProjectDetails = ({handleDeleteProject}) => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
+  const [formStatus, setFormStatus] = useState(false)
+  console.log(formStatus)
 
-  // let renderAddTaskForm = false
-  
-  // function handleBtnClick() {
-  //   renderAddTaskForm = true
-  //   console.log(renderAddTaskForm)
-  // }
-  // console.log(renderAddTaskForm)
-
+  function handleClick(){
+    setFormStatus(true)
+  }
 
   useEffect(() => {
     const fetchOne = async () => {
@@ -26,25 +23,29 @@ const ProjectDetails = ({handleDeleteProject}) => {
     fetchOne()
   }, [id])
 
-  let currentDate = new Date()
-
   return (  
-    <>
+    <main>
+
     <button
     className="delete-btn" 
     onClick={() => handleDeleteProject(project?.project?.id)}
     >🗑</button>
+    {formStatus === true ? 
+    <AddTaskForm 
+    project={project} 
+    setProject={setProject}
+    setFormStatus={setFormStatus}
+    />
+    :
+    ''
+    }
 
-    {/* <button onClick={handleBtnClick()}>add task</button>
-    {renderAddTaskForm === false ? '' : 
-    } */}
-    <AddTaskForm project={project} setProject={setProject} />
-    
+    <button onClick={handleClick}>add task</button>
 
+    <h2>To Do:</h2>
     <div>
       {project?.project?.tasks?.map((task)=> (
         <div key={task.id}>
-          {task.date !== currentDate ? 'no' : 'yes'}
         {/* <label htmlFor="checkbox-input">complete?</label>
         <input 
         onClick={handleClick}
@@ -60,7 +61,7 @@ const ProjectDetails = ({handleDeleteProject}) => {
         
       ))}      
     </div>
-    </>
+    </main>
   );
 }
  

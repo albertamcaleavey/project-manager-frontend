@@ -8,7 +8,7 @@ const initialState = {
   complete: false
 }
 
-const AddTaskForm = ({project, setProject}) => {
+const AddTaskForm = ({project, setProject, setFormStatus}) => {
   const [formData, setFormData] = useState(initialState)
 
   const addToProject = async (e) => {
@@ -16,11 +16,14 @@ const AddTaskForm = ({project, setProject}) => {
     const newTask = await addTask(project?.project?.id, formData)
     setProject(newTask)
     setFormData(initialState)
+    setFormStatus(false)
   }
+  // need use effect in this component?
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
   }
+
 
   return ( 
     <>
@@ -59,7 +62,11 @@ const AddTaskForm = ({project, setProject}) => {
               onChange={handleChange}
               />
           </div> */}
-          <button type="submit">Add</button>
+          <button 
+          id='add-task-btn' 
+          className='add-btn' 
+          type="submit"
+          >Add</button>
     </form>
     </>
    );

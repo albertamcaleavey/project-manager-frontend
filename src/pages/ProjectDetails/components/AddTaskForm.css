@@ -23,3 +23,7 @@
   border: 0;
   font-size: large;
 }
+
+#add-task-btn {
+  padding: 2% 43%;
+}
