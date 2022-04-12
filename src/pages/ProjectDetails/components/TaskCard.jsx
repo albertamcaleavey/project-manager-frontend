@@ -6,7 +6,8 @@ const TaskCard = ({task}) => {
   return (  
     <div className='task-card'>
       <p>{task?.description}</p>
-      {/* <h6>{task?.date}</h6> */}
+      <h6>{task?.date}</h6>
+      <p>{task?.complete ? 'true' : 'false'}</p>
     </div>
   );
 }

@@ -22,7 +22,9 @@ const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, s
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
+    console.log(e.target)
   }
+
 
   return ( 
     <>
@@ -50,17 +52,17 @@ const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, s
           required
           />
       </div>
-          {/* <div>
+          <div>
             <label htmlFor="checkbox-input">
               complete?
             </label>
               <input 
               type="checkbox"
               name='complete'
-              value='false'
+              value={true}
               onChange={handleChange}
               />
-          </div> */}
+          </div>
           <button 
           id='add-task-btn' 
           className='add-btn' 

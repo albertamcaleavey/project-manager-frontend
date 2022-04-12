@@ -64,23 +64,23 @@ const handleDeleteProject = async (id) => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        <Route
+        {/* <Route
           path="/profiles"
           element={user ? <Profiles /> : <Navigate to="/login" />}
-        />
+        /> */}
         <Route
         path="/add-project"
-        element={<AddProjectForm handleAddProject={handleAddProject}
-        />}
+        element={ user ? <AddProjectForm handleAddProject={handleAddProject}
+        /> : <Navigate to="/login" />}
         />
         <Route
         path="/projects"
-        element={<ProjectList 
-        projects={projects} />}
+        element={ user ? <ProjectList 
+        projects={projects} /> : <Navigate to="/login" />}
         />
         <Route
         path="/projects/:id"
-        element={<ProjectDetails handleDeleteProject={handleDeleteProject} />}
+        element={ user ? <ProjectDetails handleDeleteProject={handleDeleteProject} /> : <Navigate to="/login" />}
         />
       </Routes>
     </>
