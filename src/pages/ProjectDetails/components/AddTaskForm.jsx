@@ -5,7 +5,7 @@ import './AddTaskForm.css'
 const initialState = {
   description: '',
   date: '2022/04/10',
-  complete: 'false'
+  complete: false
 }
 
 const AddTaskForm = ({project, setProject}) => {

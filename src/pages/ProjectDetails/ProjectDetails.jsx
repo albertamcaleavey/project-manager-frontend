@@ -26,6 +26,7 @@ const ProjectDetails = ({handleDeleteProject}) => {
     fetchOne()
   }, [id])
 
+  let currentDate = new Date()
 
   return (  
     <>
@@ -43,6 +44,7 @@ const ProjectDetails = ({handleDeleteProject}) => {
     <div>
       {project?.project?.tasks?.map((task)=> (
         <div key={task.id}>
+          {task.date !== currentDate ? 'no' : 'yes'}
         {/* <label htmlFor="checkbox-input">complete?</label>
         <input 
         onClick={handleClick}
