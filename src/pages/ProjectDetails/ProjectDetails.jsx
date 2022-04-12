@@ -44,7 +44,7 @@ const ProjectDetails = ({handleDeleteProject}) => {
     ''
     }
 
-    {btnVisibility ? <button onClick={handleClick}>add task</button> : ''}
+    {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >add task</button> : ''}
     
 
     <h2>To Do:</h2>
