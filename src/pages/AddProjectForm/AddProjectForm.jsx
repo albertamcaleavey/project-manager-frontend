@@ -1,4 +1,6 @@
 import { useState, useEffect} from 'react'
+import { Link } from 'react-router-dom'
+import './AddProjectForm.css'
 
 const AddProjectForm = (props) => {
   const [formData, setFormData] = useState({
@@ -19,17 +21,23 @@ const AddProjectForm = (props) => {
   }
 
   return (  
-    <>
-    <h1>Add Project</h1>
+    <main className='add-project-form-main'>
+      <Link 
+      className='x-link'
+      to={'/projects'}
+      >x</Link>
     <form 
     autoComplete='off'
     onSubmit={handleSubmit}
     >
       <div>
-        <label htmlFor="name-input">
-          project name
+        <label 
+        className='name-label'
+        htmlFor="name-input">
+          Name
         </label>
         <input 
+        className='name-input'
         type="text" 
         name='name'
         value={formData.name}
@@ -39,10 +47,13 @@ const AddProjectForm = (props) => {
         />
       </div>
       <div>
-        <label htmlFor="deadline-input">
-          project deadline
+        <label 
+        className='deadline-label'
+        htmlFor="deadline-input">
+          Deadline
         </label>
         <input 
+        className='deadline-input'
         type="date" 
         name='deadline'
         value={formData.deadline}
@@ -52,14 +63,15 @@ const AddProjectForm = (props) => {
       </div>
       <div>
         <button 
+        className='add-btn'
         type="submit"
         // disabled={!validForm}
         >
-          Add Project
+          Add
         </button>
       </div>
     </form>
-    </>
+    </main>
   );
 }
  

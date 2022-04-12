@@ -4,6 +4,7 @@ import './ProjectList.css'
 
 const ProjectList = (props) => {
   return (  
+    <>
     <main>
     <h1>Projects</h1>
     <div className="project-list-container">
@@ -14,10 +15,13 @@ const ProjectList = (props) => {
         />
       ))}
     </div>
-    <Link to={'/add-project'}>
-    <button className="add-project-btn">+</button>
-    </Link>
     </main>
+    {/* <footer> */}
+      <Link to={'/add-project'}>
+        <button className="add-project-btn">+</button>
+     </Link>
+    {/* </footer> */}
+    </>
   );
 }
  

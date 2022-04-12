@@ -5,6 +5,9 @@
   color: white;
   font-size: x-large;
   padding: 0 2%;
+  position: fixed;
+  bottom: 5%;
+  right: 5%;
 }
 
 main {
