@@ -8,11 +8,13 @@ import './ProjectDetails.css'
 const ProjectDetails = ({handleDeleteProject}) => {
   const { id } = useParams()
   const [project, setProject] = useState(null)
-  const [formStatus, setFormStatus] = useState(false)
-  console.log(formStatus)
+  const [formVisibility, setformVisibility] = useState(false)
+  const [btnVisibility, setBtnVisibility] = useState(true)
+  console.log(formVisibility)
 
   function handleClick(){
-    setFormStatus(true)
+    setformVisibility(true)
+    setBtnVisibility(false)
   }
 
   useEffect(() => {
@@ -30,17 +32,20 @@ const ProjectDetails = ({handleDeleteProject}) => {
     className="delete-btn" 
     onClick={() => handleDeleteProject(project?.project?.id)}
     >🗑</button>
-    {formStatus === true ? 
+
+    {formVisibility ? 
     <AddTaskForm 
     project={project} 
     setProject={setProject}
-    setFormStatus={setFormStatus}
+    setformVisibility={setformVisibility}
+    setBtnVisibility={setBtnVisibility}
     />
     :
     ''
     }
 
-    <button onClick={handleClick}>add task</button>
+    {btnVisibility ? <button onClick={handleClick}>add task</button> : ''}
+    
 
     <h2>To Do:</h2>
     <div>

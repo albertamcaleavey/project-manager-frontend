@@ -8,7 +8,7 @@ const initialState = {
   complete: false
 }
 
-const AddTaskForm = ({project, setProject, setFormStatus}) => {
+const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility}) => {
   const [formData, setFormData] = useState(initialState)
 
   const addToProject = async (e) => {
@@ -16,9 +16,10 @@ const AddTaskForm = ({project, setProject, setFormStatus}) => {
     const newTask = await addTask(project?.project?.id, formData)
     setProject(newTask)
     setFormData(initialState)
-    setFormStatus(false)
+    setformVisibility(false)
+    setBtnVisibility(true)
   }
-  // need use effect in this component?
+  // need use effect in this component to show task cards withou refresh?
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
