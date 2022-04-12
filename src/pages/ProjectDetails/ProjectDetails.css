@@ -5,4 +5,10 @@
 
 #render-task-form-btn {
   padding: 2%;
+  /* align-self: flex-start; */
+}
+
+.title-container {
+  display: flex;
+  justify-content: space-between;
 }

@@ -44,10 +44,11 @@ const ProjectDetails = ({handleDeleteProject}) => {
     ''
     }
 
+    <div className="title-container">
+    <h1>To Do:</h1>
     {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >add task</button> : ''}
-    
+    </div>
 
-    <h2>To Do:</h2>
     <div>
       {project?.tasks?.map((task)=> (
         <div key={task.id}>
