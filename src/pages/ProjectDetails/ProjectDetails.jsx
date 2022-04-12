@@ -10,7 +10,6 @@ const ProjectDetails = ({handleDeleteProject}) => {
   const [project, setProject] = useState(null)
   const [formVisibility, setformVisibility] = useState(false)
   const [btnVisibility, setBtnVisibility] = useState(true)
-  console.log(formVisibility)
 
   function handleClick(){
     setformVisibility(true)
@@ -19,18 +18,19 @@ const ProjectDetails = ({handleDeleteProject}) => {
 
   useEffect(() => {
     const fetchOne = async () => {
-      getOne(id)
-      .then(data => setProject(data))
+      const data = await getOne(id)
+      setProject(data.project)
+
     }
     fetchOne()
-  }, [id])
+  },[id])
 
   return (  
     <main>
 
     <button
     className="delete-btn" 
-    onClick={() => handleDeleteProject(project?.project?.id)}
+    onClick={() => handleDeleteProject(project?.id)}
     >🗑</button>
 
     {formVisibility ? 
@@ -49,7 +49,7 @@ const ProjectDetails = ({handleDeleteProject}) => {
 
     <h2>To Do:</h2>
     <div>
-      {project?.project?.tasks?.map((task)=> (
+      {project?.tasks?.map((task)=> (
         <div key={task.id}>
         {/* <label htmlFor="checkbox-input">complete?</label>
         <input 
