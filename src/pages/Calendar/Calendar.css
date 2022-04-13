@@ -1,0 +1,11 @@
+.calendar-container {
+  border: 1px solid rgb(243, 26, 26);
+  display: grid;
+  grid-template: repeat(5, 20%) / repeat(7, 14.28%) ;
+  min-height: 50vh;
+}
+
+.day-box {
+  border: 1px solid grey;
+}
+
