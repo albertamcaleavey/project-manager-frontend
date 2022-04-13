@@ -23,13 +23,14 @@ const Calendar = ({ projects }) => {
   }, [projects])
 
   let daysWithDeadlines = daysOfMonth.map((date) => {
+    // console.log(date.split('').splice(8, 2).join(''))
     let checkDate = deadlines.some((deadline)=> {
       return deadline === date
     })
     if(checkDate === true){
-      return (`${date}⭐️`)
+      return (`${date.split('').splice(8, 2).join('')}⭐️`)
     } else {
-      return (date)
+      return (date.split('').splice(8, 2).join(''))
     }
   })
 
