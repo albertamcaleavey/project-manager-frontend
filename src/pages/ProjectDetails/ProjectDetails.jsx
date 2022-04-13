@@ -45,10 +45,13 @@ const ProjectDetails = () => {
     onClick={() => handleDeleteProject(project?.id)}
     >🗑</button> */}
 
-<button
-    className="delete-btn" 
-    onClick={() => navigate(`/projects/${project?.id}/confirmation`, { state: project })}
-    >🗑</button>
+    <div className="title-container">
+      <h1 className="title">{project?.name}</h1>
+      <button
+      className="delete-btn" 
+      onClick={() => navigate(`/projects/${project?.id}/confirmation`, { state: project })}
+      >🗑</button>
+    </div>
     
 
 
@@ -63,8 +66,7 @@ const ProjectDetails = () => {
     :
     ''
     }
-
-    <div className="title-container">
+    <div className="todo-container">
     <h1>To Do:</h1>
     {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >add task</button> : ''}
     </div>
