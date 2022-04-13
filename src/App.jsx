@@ -89,7 +89,7 @@ const handleDeleteProject = async (id) => {
           } />
           <Route
         path="/calendar"
-        element={ user ? <Calendar user={user} /> : <Navigate to="/login" />}
+        element={ user ? <Calendar user={user} projects={projects} /> : <Navigate to="/login" />}
         />
           
       </Routes>
