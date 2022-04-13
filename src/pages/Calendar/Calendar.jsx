@@ -23,31 +23,27 @@ const Calendar = ({ projects }) => {
   }, [projects])
 
   let daysWithDeadlines = daysOfMonth.map((date) => {
-    // console.log(date.split('').splice(8, 2).join(''))
     let checkDate = deadlines.some((deadline)=> {
       return deadline === date
     })
     if(checkDate === true){
-      return (`${date.split('').splice(8, 2).join('')}⭐️`)
+      return (`${date.split('').splice(8, 2).join('')} ⭐️`)
     } else {
       return (date.split('').splice(8, 2).join(''))
     }
   })
 
 
-  console.log(daysWithDeadlines)
-
   return (  
     <>
     
     <h1>{month}</h1>
     <div className="calendar-container">
-
-    
     {daysWithDeadlines.map((date, idx) => (
         <Day deadlines={deadlines} key={idx} date={date} />
       ))}
-      </div>
+    </div>
+    
 
     </>
   );
