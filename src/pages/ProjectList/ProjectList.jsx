@@ -2,13 +2,14 @@ import ProjectCard from "../../components/ProjectCard/ProjectCard";
 import { Link } from "react-router-dom";
 import './ProjectList.css'
 
-const ProjectList = (props) => {
+const ProjectList = ({user, projects}) => {
+
   return (  
     <>
     <main>
     <h1>Projects</h1>
     <div className="project-list-container">
-      {props.projects.map((project) => (
+      {projects.map((project) => (
         <ProjectCard
         key={project.id}
         project={project}

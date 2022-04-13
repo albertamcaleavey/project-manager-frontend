@@ -77,11 +77,11 @@ const handleDeleteProject = async (id) => {
         <Route
         path="/projects"
         element={ user ? <ProjectList 
-        projects={projects} /> : <Navigate to="/login" />}
+        projects={projects} user={user} /> : <Navigate to="/login" />}
         />
         <Route
         path="/projects/:id"
-        element={ user ? <ProjectDetails /> : <Navigate to="/login" />}
+        element={ user ? <ProjectDetails user={user} /> : <Navigate to="/login" />}
         />
         <Route 
         path="/projects/:id/confirmation" element={ user ? <DeleteConfirmation handleDeleteProject={handleDeleteProject} user={user} /> : <Navigate to="/login" />

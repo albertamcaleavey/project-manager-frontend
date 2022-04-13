@@ -11,6 +11,17 @@ const ProjectDetails = () => {
   const [project, setProject] = useState(null)
   const [formVisibility, setformVisibility] = useState(false)
   const [btnVisibility, setBtnVisibility] = useState(true)
+  // const [completedTasks, setCompletedTasks] = useState(someTasks)
+
+
+  // function addCompletedTask() {
+  //   someTasks.push('three')
+  //   setCompletedTasks(someTasks)
+  //   // console.log(completedTasks)
+  // } 
+
+  // on click, push that element into an array (state)- the array is made up of tasks that are completed
+// then map the elements in the completed array to a "complete" section
 
   function handleClick(){
     setformVisibility(true)

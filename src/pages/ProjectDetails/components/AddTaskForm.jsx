@@ -22,9 +22,7 @@ const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, s
 
   const handleChange = (e) => {
     setFormData({ ...formData, [e.target.name]: e.target.value })
-    console.log(e.target)
   }
-
 
   return ( 
     <>
