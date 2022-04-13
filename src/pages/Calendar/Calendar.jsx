@@ -4,54 +4,47 @@ import { useState, useEffect } from 'react'
 
 const Calendar = ({ projects }) => {
   const [deadlines, setDeadlines] = useState([])
-  // console.log(deadlines)
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
   let month = months[new Date().getMonth()]
-
-  let today = new Date(); // current date
-  let end = new Date(today.getFullYear(), today.getMonth() + 1, 0).getDate(); // end date of month
-  let daysOfMonth = [];
+  let currentMonth = months.indexOf(month) + 1
+  
+  let today = new Date()
+  let end = new Date(today.getFullYear(), currentMonth.toString(), 0).getDate()
+  let daysOfMonth = []
 
   for(let i = 1; i <= end; i++){
-    // returns in yyy-mm-dd format
-    daysOfMonth.push(today.getFullYear() + '-' + (today.getMonth() < 10? '0'+today.getMonth(): today.getMonth()) +'-'+ (i < 10 ? '0'+ i: i)) 
-    // daysOfMonth.push(i < 10 ? '0'+ i: i)
+    daysOfMonth.push(today.getFullYear() + '-' + (currentMonth < 10? '0'+currentMonth.toString(): currentMonth.toString()) +'-'+ (i < 10 ? '0'+ i: i)) 
   }
-  // console.log(daysOfMonth)
-
-  let projectDeadlines = projects.map((project)=> {
-    return new Date(project.deadline).toISOString().split('T')[0]
-  })
-  // console.log(projectDeadlines)
 
   useEffect(()=> {
-    setDeadlines(projectDeadlines)
-  }, [projectDeadlines])
-  console.log(deadlines)
+    setDeadlines(projects.map((project)=> {
+      return new Date(project.deadline).toISOString().split('T')[0]
+    }))
+  }, [projects])
 
-  // for each day, loop through project deadlines
-  // if a project deadline === a date render a star
-  let test = daysOfMonth.forEach((day, idx) => {
-    projectDeadlines.forEach((deadline) => {
-      if(deadline === day){
-        console.log(deadline)
-      }
+  let daysWithDeadlines = daysOfMonth.map((date) => {
+    let checkDate = deadlines.some((deadline)=> {
+      return deadline === date
     })
-    return
+    if(checkDate === true){
+      return (`${date}⭐️`)
+    } else {
+      return (date)
+    }
   })
 
-  console.log(test)
-  
+
+  console.log(daysWithDeadlines)
 
   return (  
     <>
     
     <h1>{month}</h1>
     <div className="calendar-container">
-    {daysOfMonth.map((date, idx) => (
-      // <p>{date}</p> // parse DATE 
-        <Day key={idx} date={date} />
-      
+
+    
+    {daysWithDeadlines.map((date, idx) => (
+        <Day deadlines={deadlines} key={idx} date={date} />
       ))}
       </div>
 
