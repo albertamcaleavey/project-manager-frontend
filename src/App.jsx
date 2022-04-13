@@ -9,6 +9,7 @@ import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
 import ProjectList from './pages/ProjectList/ProjectList'
 import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
 import DeleteConfirmation from './pages/DeleteConfirmation/DeleteConfirmation'
+import Calendar from './pages/Calendar/Calendar'
 
 import * as authService from './services/authService'
 import * as projectService from './services/projectService'
@@ -86,6 +87,11 @@ const handleDeleteProject = async (id) => {
         <Route 
         path="/projects/:id/confirmation" element={ user ? <DeleteConfirmation handleDeleteProject={handleDeleteProject} user={user} /> : <Navigate to="/login" />
           } />
+          <Route
+        path="/calendar"
+        element={ user ? <Calendar user={user} /> : <Navigate to="/login" />}
+        />
+          
       </Routes>
     </>
   )

@@ -5,7 +5,6 @@ import './ProjectList.css'
 const ProjectList = ({user, projects}) => {
 
   return (  
-    <>
     <main>
     <h1>Projects</h1>
     <div className="project-list-container">
@@ -16,13 +15,18 @@ const ProjectList = ({user, projects}) => {
         />
       ))}
     </div>
-    </main>
-    {/* <footer> */}
       <Link to={'/add-project'}>
         <button className="add-project-btn">+</button>
-     </Link>
-    {/* </footer> */}
-    </>
+      </Link>
+      <Link to={'/projects'}>
+      <button>List View</button>
+      </Link>
+
+      <Link to={'/calendar'}>
+      <button>Calendar View</button>
+      </Link>
+    </main>
+
   );
 }
  
