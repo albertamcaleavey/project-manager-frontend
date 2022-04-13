@@ -14,21 +14,34 @@ const Calendar = ({ projects }) => {
 
   for(let i = 1; i <= end; i++){
     // returns in yyy-mm-dd format
-    // daysOfMonth.push(today.getFullYear() + '-' + (today.getMonth() < 10? '0'+today.getMonth(): today.getMonth()) +'-'+ (i < 10 ? '0'+ i: i)) 
-    daysOfMonth.push(i < 10 ? '0'+ i: i)
+    daysOfMonth.push(today.getFullYear() + '-' + (today.getMonth() < 10? '0'+today.getMonth(): today.getMonth()) +'-'+ (i < 10 ? '0'+ i: i)) 
+    // daysOfMonth.push(i < 10 ? '0'+ i: i)
   }
   // console.log(daysOfMonth)
 
   let projectDeadlines = projects.map((project)=> {
     return new Date(project.deadline).toISOString().split('T')[0]
   })
+  // console.log(projectDeadlines)
 
-  // set all FORMATTED project dates in state
-  console.log(projectDeadlines)
   useEffect(()=> {
     setDeadlines(projectDeadlines)
   }, [])
-  console.log(deadlines)
+  // console.log(deadlines)
+
+  // for each day, loop through project deadlines
+  // if a project deadline === a date render a star
+  let test = daysOfMonth.forEach((day, idx) => {
+    projectDeadlines.forEach((deadline) => {
+      if(deadline === day){
+        console.log(deadline)
+      }
+    })
+    return
+  })
+
+  console.log(test)
+  
 
   return (  
     <>
