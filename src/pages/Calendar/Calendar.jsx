@@ -26,8 +26,8 @@ const Calendar = ({ projects }) => {
 
   useEffect(()=> {
     setDeadlines(projectDeadlines)
-  }, [])
-  // console.log(deadlines)
+  }, [projectDeadlines])
+  console.log(deadlines)
 
   // for each day, loop through project deadlines
   // if a project deadline === a date render a star

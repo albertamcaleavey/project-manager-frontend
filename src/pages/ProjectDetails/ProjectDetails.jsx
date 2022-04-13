@@ -1,6 +1,6 @@
 import TaskCard from "./components/TaskCard";
 import AddTaskForm from "./components/AddTaskForm";
-import { useParams, useNavigate, Link } from "react-router-dom";
+import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { getOne } from '../../services/projectService'
 import './ProjectDetails.css'
