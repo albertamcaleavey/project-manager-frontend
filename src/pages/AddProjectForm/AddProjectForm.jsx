@@ -7,13 +7,10 @@ const AddProjectForm = (props) => {
     name: '',
     deadline: '2022/04/10'
   })
-  // const [validform, setValidForm] = useState(false)
 
   const handleChange = evt => {
     setFormData({...formData, [evt.target.name]: evt.target.value})
   }
-
-  // const formElement = useRef()
 
   const handleSubmit = evt => {
     evt.preventDefault()

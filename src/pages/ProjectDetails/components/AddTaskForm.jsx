@@ -8,7 +8,7 @@ const initialState = {
   complete: false
 }
 
-const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, setBtnVisibility}) => {
+const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility}) => {
   const [formData, setFormData] = useState(initialState)
 
   const addToProject = async (e) => {
@@ -31,7 +31,7 @@ const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, s
         <label htmlFor="description-input">
         </label>
         <input 
-        placeholder='Add a new task'
+        placeholder='Task Description'
         type="textarea"
         size={38}
         name='description'
@@ -50,22 +50,12 @@ const AddTaskForm = ({project, setProject, tasks, setTasks, setformVisibility, s
           required
           />
       </div>
-          <div>
-            <label htmlFor="checkbox-input">
-              complete?
-            </label>
-              <input 
-              type="checkbox"
-              name='complete'
-              value={true}
-              onChange={handleChange}
-              />
-          </div>
-          <button 
-          id='add-task-btn' 
-          className='add-btn' 
-          type="submit"
-          >Add</button>
+      <button 
+        id='add-task-btn' 
+        className='add-btn' 
+        type="submit"
+        >Add
+        </button>
     </form>
     </>
    );

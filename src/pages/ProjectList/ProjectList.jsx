@@ -3,11 +3,12 @@ import ListCalendarViewBtn from "../../components/ListCalendarViewBtn/ListCalend
 import { Link } from "react-router-dom";
 import './ProjectList.css'
 
-const ProjectList = ({user, projects}) => {
-  console.log(projects)
+const ProjectList = ({ projects }) => {
   return (  
     <main>
       <h1>Projects</h1>
+      {projects.length ?
+      <>
       <div className="project-list-container">
         {projects.map((project) => (
           <ProjectCard
@@ -16,12 +17,22 @@ const ProjectList = ({user, projects}) => {
           />
         ))}
       </div>
-        <Link to={'/add-project'}>
-          <button className="add-project-btn">+</button>
-        </Link>
+      <Link to={'/add-project'}>
+        <button className="add-project-btn">+</button>
+      </Link>
         <ListCalendarViewBtn />
+      </>
+      :
+      <>
+      <div>
+        Add a new project!
+      </div>
+      <Link to={'/add-project'}>
+        <button className="add-project-btn">+</button>
+      </Link>
+      </>
+    }
     </main>
-
   );
 }
 
