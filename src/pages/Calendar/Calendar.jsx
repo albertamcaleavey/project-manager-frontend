@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react'
 
 const Calendar = ({ projects }) => {
   const [deadlines, setDeadlines] = useState([])
+  const [taskDays, setTaskDays] = useState([])
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
   let month = months[new Date().getMonth()]
   let currentMonth = months.indexOf(month) + 1
@@ -17,34 +18,59 @@ const Calendar = ({ projects }) => {
   }
 
   useEffect(()=> {
-    setDeadlines(projects.map((project)=> {
-      return new Date(project.deadline).toISOString().split('T')[0]
+    setDeadlines(projects?.map((project)=> {
+      return new Date(project?.deadline).toISOString().split('T')[0]
     }))
   }, [projects])
 
-  let daysWithDeadlines = daysOfMonth.map((date) => {
-    let checkDate = deadlines.some((deadline)=> {
+  useEffect(()=> {
+    setTaskDays(projects?.map((project) => {
+      let taskDates = []
+      project?.tasks?.forEach((task) => {
+        taskDates?.push(new Date(task?.date).toISOString().split('T')[0])
+      })
+      return taskDates
+    })[projects.length - 1])
+  }, [projects])
+
+
+console.log(taskDays)
+
+  let daysWithDeadlines = daysOfMonth?.map((date) => {
+    let checkTaskDate = taskDays?.some((taskDate)=> {
+      console.log(taskDays)
+      return taskDate === date
+    })
+
+    let checkDate = deadlines?.some((deadline)=> {
       return deadline === date
     })
+    
+    if(checkTaskDate === true && checkDate === true){
+      return (`${date.split('').splice(8, 2).join('')} ⭐️🔵`)
+    } 
+
     if(checkDate === true){
       return (`${date.split('').splice(8, 2).join('')} ⭐️`)
-    } else {
+    } 
+    if(checkTaskDate === true){
+      return (`${date.split('').splice(8, 2).join('')} 🔵`)
+    } 
+    
+    else {
       return (date.split('').splice(8, 2).join(''))
     }
   })
-
+console.log(daysWithDeadlines)
 
   return (  
     <>
-    
     <h1>{month}</h1>
     <div className="calendar-container">
-    {daysWithDeadlines.map((date, idx) => (
+    {daysWithDeadlines?.map((date, idx) => (
         <Day deadlines={deadlines} key={idx} date={date} />
       ))}
     </div>
-    
-
     </>
   );
 }

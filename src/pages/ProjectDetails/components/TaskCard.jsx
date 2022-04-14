@@ -10,5 +10,5 @@ const TaskCard = ({task}) => {
     </div>
   );
 }
- 
+
 export default TaskCard;
