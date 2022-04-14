@@ -1,4 +1,5 @@
 import { useNavigate, useLocation, useParams, Link } from 'react-router-dom'
+import './DeleteConfirmation.css'
 
 const DeleteConfirmation = ({ handleDeleteProject }) => {
   const { id } = useParams()
@@ -12,14 +13,15 @@ const DeleteConfirmation = ({ handleDeleteProject }) => {
 
   return (
     <>
-      <div className="page-header">
-        <h1>Delete Confirmation</h1>
-      </div>
+    <main>
       <section className="confirmation">
         <h2>Are you sure you want to delete {state?.name}?</h2>
-        <Link className="btn submit" to={`/projects/${id}`}>Cancel</Link>
-        <button onClick={handleDelete} type="button" className="btn danger">Yes - Delete!</button>
+        <Link className="btn submit" to={`/projects/${id}`}>
+          <button className='cancel-delete-btn'> Cancel</button>
+        </Link>
+        <button onClick={handleDelete} type="button" className="delete-confirm-btn">Yes - Delete</button>
       </section>
+    </main>
     </>
   )
 }

@@ -27,7 +27,6 @@ const App = () => {
     navigate('/projects')
   }
 
-  // get all projects when component is loaded and save them to state 
   useEffect(() => {
     projectService.getAll()
     .then(allProjects => 
@@ -38,15 +37,12 @@ const App = () => {
     )
   }, [user?.id])
 
-//--------------------------------------------
-
 const handleDeleteProject = async (id) => {
   await projectService.deleteOne(id)
 	setProjects(projects.filter(project => project.id !== parseInt(id)))
   navigate('/projects')
 }
 
-//--------------------------------------------
   const handleLogout = () => {
     authService.logout()
     setUser(null)
