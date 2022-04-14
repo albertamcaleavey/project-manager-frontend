@@ -19,6 +19,7 @@
 
 main {
   display: grid;
+  margin-bottom: 20%;
 }
 
 .list-cal-btn-container {

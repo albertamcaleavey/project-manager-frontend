@@ -1,3 +1,7 @@
+main {
+  margin-bottom: 20%;
+}
+
 .calendar-container {
   /* border: 1px solid rgb(243, 26, 26); */
   display: grid;

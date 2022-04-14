@@ -7,7 +7,6 @@ const NavBar = ({ user, handleLogout, projects }) => {
   const [activeRoute, setActiveRoute] = useState(location.pathname)
 
   let currentProject = projects.find((project) => {
-    console.log(project.id)
     return project.id.toString() === location.pathname.split('').splice(10, 2).join('')
   })
 
