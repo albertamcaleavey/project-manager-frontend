@@ -7,9 +7,6 @@ const ProjectList = ({user, projects}) => {
   console.log(projects)
   return (  
     <main>
-      {user?.id === projects[0]?.profile_id ?
-      <>
-      
       <h1>Projects</h1>
       <div className="project-list-container">
         {projects.map((project) => (
@@ -23,21 +20,6 @@ const ProjectList = ({user, projects}) => {
           <button className="add-project-btn">+</button>
         </Link>
         <ListCalendarViewBtn />
-      </>
-        :
-        <>
-        <Link to={'/add-project'}>
-          <button className="add-project-btn">+</button>
-        </Link>
-        <ListCalendarViewBtn />
-        </>
-      
-    
-    
-    
-    
-    
-    }
     </main>
 
   );

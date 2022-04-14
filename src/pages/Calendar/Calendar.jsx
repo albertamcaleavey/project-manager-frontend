@@ -1,4 +1,5 @@
 import Day from "./Day";
+import moment from "moment";
 import ListCalendarViewBtn from "../../components/ListCalendarViewBtn/ListCalendarViewBtn";
 import './Calendar.css'
 import { useState, useEffect } from 'react'
@@ -6,6 +7,7 @@ import { useState, useEffect } from 'react'
 const Calendar = ({ projects }) => {
   const [deadlines, setDeadlines] = useState([])
   const [taskDays, setTaskDays] = useState([])
+  const [todaysTasks, setTodaysTasks] = useState([])
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
   let month = months[new Date().getMonth()]
   let currentMonth = months.indexOf(month) + 1
@@ -32,8 +34,20 @@ const Calendar = ({ projects }) => {
       })
       return taskDates
     })[projects.length - 1])
+
+    setTodaysTasks(projects?.map((project) => {
+      let todaysTaskList = []
+      project?.tasks?.forEach((task) => {
+        if(new Date(task.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0]){
+          todaysTaskList.push(task)
+        }
+      })
+      return todaysTaskList
+    })[projects.length - 1])
+
   }, [projects])
 
+  console.log(todaysTasks)
 
 
   let daysWithDeadlines = daysOfMonth?.map((date) => {
@@ -64,13 +78,25 @@ const Calendar = ({ projects }) => {
   return (  
     <>
     <main>
-    <h1>{month}</h1>
-    <div className="calendar-container">
-    {daysWithDeadlines?.map((date, idx) => (
+      <h1>{month}</h1>
+      <div className="calendar-container">
+      {daysWithDeadlines?.map((date, idx) => (
         <Day deadlines={deadlines} key={idx} date={date} />
       ))}
-    </div>
-    <ListCalendarViewBtn />
+      </div>
+    <div>
+        <p>⭐️ Project Deadline</p>
+        <p>🔵 Task Scheduled </p>
+      </div>
+      <div>
+        <h2>Today</h2>
+          <div>
+            {todaysTasks?.map((task)=> (
+              <p key={task.id}>{task.description}</p>
+            ))}
+          </div>
+      </div>
+      <ListCalendarViewBtn />
     </main>
     </>
   );
