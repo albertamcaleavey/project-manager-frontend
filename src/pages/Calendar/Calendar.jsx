@@ -74,13 +74,13 @@ const Calendar = ({ projects }) => {
   return (  
     <>
     <main>
-      <h1>{month}</h1>
+      <h3 className="month">{month}</h3>
       <div className="calendar-container">
       {daysWithDeadlines?.map((date, idx) => (
         <Day deadlines={deadlines} key={idx} date={date} />
       ))}
       </div>
-    <div>
+    <div className="calendar-key">
         <p>⭐️ Project Deadline</p>
         <p>🔵 Task Scheduled </p>
       </div>
@@ -92,7 +92,9 @@ const Calendar = ({ projects }) => {
             ))}
           </div>
       </div>
+      <div className="list-cal-btn-container">
       <ListCalendarViewBtn />
+      </div>
     </main>
     </>
   );

@@ -21,13 +21,13 @@ const ListCalendarViewBtn = () => {
   return (  
     <>
     <Link to={'/projects'} >
-      <button className="view-btn" id={getActiveClassName('/projects')} onClick={handleListClick}>
+      <button className="view-btn list" id={getActiveClassName('/projects')} onClick={handleListClick}>
         List View
       </button>
     </Link>
 
     <Link to={'/calendar'} >
-      <button className="view-btn" id={getActiveClassName('/calendar')} onClick={handleCalendarClick}>
+      <button className="view-btn calendar" id={getActiveClassName('/calendar')} onClick={handleCalendarClick}>
         Calendar View
       </button>
     </Link>

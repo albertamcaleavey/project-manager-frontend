@@ -20,7 +20,9 @@ const ProjectList = ({ projects }) => {
       <Link to={'/add-project'}>
         <button className="add-project-btn">+</button>
       </Link>
+      <footer className="list-cal-btn-container">
         <ListCalendarViewBtn />
+      </footer>
       </>
       :
       <>

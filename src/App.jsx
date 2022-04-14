@@ -4,7 +4,6 @@ import NavBar from './components/NavBar/NavBar'
 import Signup from './pages/Signup/Signup'
 import Login from './pages/Login/Login'
 import Landing from './pages/Landing/Landing'
-// import Profiles from './pages/Profiles/Profiles'
 import AddProjectForm from './pages/AddProjectForm/AddProjectForm'
 import ProjectList from './pages/ProjectList/ProjectList'
 import ProjectDetails from './pages/ProjectDetails/ProjectDetails'
@@ -56,11 +55,12 @@ const handleDeleteProject = async (id) => {
 
   const handleSignupOrLogin = () => {
     setUser(authService.getUser())
+    navigate('/projects')
   }
 
   return (
     <>
-      <NavBar user={user} handleLogout={handleLogout} />
+      <NavBar projects={projects} user={user} handleLogout={handleLogout} />
       <Routes>
         <Route path="/" element={<Landing user={user} />} />
         <Route
@@ -71,10 +71,6 @@ const handleDeleteProject = async (id) => {
           path="/login"
           element={<Login handleSignupOrLogin={handleSignupOrLogin} />}
         />
-        {/* <Route
-          path="/profiles"
-          element={user ? <Profiles /> : <Navigate to="/login" />}
-        /> */}
         <Route
         path="/add-project"
         element={ user ? <AddProjectForm handleAddProject={handleAddProject}

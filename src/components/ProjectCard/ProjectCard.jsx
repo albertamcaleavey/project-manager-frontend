@@ -9,8 +9,8 @@ const ProjectCard = ({project}) => {
     to={`${project.id}`}
     >
     <div className='projectcard-container'>
-    <div className='project-deadline'>{moment(project.deadline).add(1, 'days').format("MMM Do YY").toString()}</div>
-    <div className='project-name'>{project.name}</div>
+    <h3 className='project-name'>{project.name}</h3>
+    <div className='project-deadline'>Deadline: {moment(project.deadline).add(1, 'days').format("MMM Do YY").toString()}</div>
     </div>
     </Link>
   );
