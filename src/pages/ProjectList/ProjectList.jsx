@@ -24,5 +24,5 @@ const ProjectList = ({user, projects}) => {
 
   );
 }
- 
+
 export default ProjectList;

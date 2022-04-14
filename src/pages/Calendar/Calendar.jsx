@@ -24,9 +24,7 @@ const Calendar = ({ projects }) => {
     setDeadlines(projects?.map((project)=> {
       return new Date(project?.deadline).toISOString().split('T')[0]
     }))
-  }, [projects])
 
-  useEffect(()=> {
     setTaskDays(projects?.map((project) => {
       let taskDates = []
       project?.tasks?.forEach((task) => {
@@ -46,8 +44,6 @@ const Calendar = ({ projects }) => {
     })[projects.length - 1])
 
   }, [projects])
-
-  console.log(todaysTasks)
 
 
   let daysWithDeadlines = daysOfMonth?.map((date) => {
