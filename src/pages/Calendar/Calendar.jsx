@@ -1,4 +1,5 @@
 import Day from "./Day";
+import ListCalendarViewBtn from "../../components/ListCalendarViewBtn/ListCalendarViewBtn";
 import './Calendar.css'
 import { useState, useEffect } from 'react'
 
@@ -34,43 +35,43 @@ const Calendar = ({ projects }) => {
   }, [projects])
 
 
-console.log(taskDays)
 
   let daysWithDeadlines = daysOfMonth?.map((date) => {
+    let formattedDate = date.split('').splice(8, 2).join('')
     let checkTaskDate = taskDays?.some((taskDate)=> {
-      console.log(taskDays)
       return taskDate === date
     })
 
-    let checkDate = deadlines?.some((deadline)=> {
+    let checkDeadlineDate = deadlines?.some((deadline)=> {
       return deadline === date
     })
-    
-    if(checkTaskDate === true && checkDate === true){
-      return (`${date.split('').splice(8, 2).join('')} ⭐️🔵`)
+
+    if(checkTaskDate === true && checkDeadlineDate === true){
+      return (`${formattedDate} ⭐️🔵`)
     } 
 
-    if(checkDate === true){
-      return (`${date.split('').splice(8, 2).join('')} ⭐️`)
+    if(checkDeadlineDate === true){
+      return (`${formattedDate} ⭐️`)
     } 
     if(checkTaskDate === true){
-      return (`${date.split('').splice(8, 2).join('')} 🔵`)
+      return (`${formattedDate} 🔵`)
     } 
-    
     else {
-      return (date.split('').splice(8, 2).join(''))
+      return (formattedDate)
     }
   })
-console.log(daysWithDeadlines)
 
   return (  
     <>
+    <main>
     <h1>{month}</h1>
     <div className="calendar-container">
     {daysWithDeadlines?.map((date, idx) => (
         <Day deadlines={deadlines} key={idx} date={date} />
       ))}
     </div>
+    <ListCalendarViewBtn />
+    </main>
     </>
   );
 }

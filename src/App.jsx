@@ -31,8 +31,13 @@ const App = () => {
   // get all projects when component is loaded and save them to state 
   useEffect(() => {
     projectService.getAll()
-    .then(allProjects => setProjects(allProjects))
-  }, [])
+    .then(allProjects => 
+      setProjects(allProjects?.filter((project)=> {
+        return project?.profile_id === user?.id
+      }))
+    
+    )
+  }, [user?.id])
 
 //--------------------------------------------
 
