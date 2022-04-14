@@ -1,11 +1,16 @@
+.delete-btn-container{
+  display: flex;
+  justify-content: flex-end;
+}
 .delete-btn {
   background-color: transparent;
   border: 0;
+  margin-bottom: 2%;
 }
 
 #render-task-form-btn {
   padding: 2%;
-  /* align-self: flex-start; */
+  align-self: flex-end;
 }
 
 .todo-container {
@@ -13,6 +18,8 @@
   justify-content: space-between;
 }
 
-.title-container {
-  
+@media only screen and (min-width: 768px){
+  #render-task-form-btn {
+    padding: 1%;
+  }
 }

@@ -28,20 +28,21 @@ const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility})
     <>
     <form className='add-task-form' autoComplete='off' onSubmit={addToProject}>
       <div className='task-description'>
-        <label htmlFor="description-input">
-        </label>
+        {/* <label htmlFor="description-input">
+        </label> */}
         <input 
+        autoFocus
         placeholder='Task Description'
-        type="textarea"
-        size={38}
+        type="text"
+        size={45}
         name='description'
         onChange={handleChange}
         required
         />
       </div>
-      <div>
+      <div className='date-container'>
         <label htmlFor="date-input">
-          Scheduled for
+          Schedule for
           </label>
           <input 
           type="date"

@@ -29,7 +29,7 @@ const NavBar = ({ user, handleLogout, projects }) => {
         <nav>
           <ul>
             <li>{activeRoute}</li>
-            <li><Link to="" onClick={handleLogout}>Log Out</Link></li>
+            <li><Link to="" onClick={handleLogout} className="logout-link">Log Out</Link></li>
           </ul>
         </nav>
       :

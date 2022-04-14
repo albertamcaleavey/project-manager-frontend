@@ -6,9 +6,14 @@ import './ProjectList.css'
 const ProjectList = ({ projects }) => {
   return (  
     <main>
-      <h1>Projects</h1>
       {projects.length ?
       <>
+      <Link className="btn-container" to={'/add-project'}>
+        <button className="add-btn-mobile">+</button>
+      </Link>
+      <Link className="btn-container" to={'/add-project'}>
+        <button className="add-btn-desktop">New Project</button>
+      </Link>
       <div className="project-list-container">
         {projects.map((project) => (
           <ProjectCard
@@ -17,9 +22,6 @@ const ProjectList = ({ projects }) => {
           />
         ))}
       </div>
-      <Link to={'/add-project'}>
-        <button className="add-project-btn">+</button>
-      </Link>
       <footer className="list-cal-btn-container">
         <ListCalendarViewBtn />
       </footer>
@@ -29,6 +31,10 @@ const ProjectList = ({ projects }) => {
       <div>
         Add a new project!
       </div>
+      <Link to={'/add-project'}>
+        <button className="add-project-btn">+</button>
+      </Link>
+
       <Link to={'/add-project'}>
         <button className="add-project-btn">+</button>
       </Link>

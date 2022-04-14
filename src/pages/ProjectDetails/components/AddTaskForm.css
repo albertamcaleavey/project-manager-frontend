@@ -3,11 +3,7 @@
 }
 
 .add-task-form div {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  justify-items: center;
-  margin: 2%;
+  margin-bottom: 4%;
 }
 
 .task-description {
@@ -15,8 +11,9 @@
 }
 
 .add-task-form label {
-  font-size: small;
+  /* font-size: large; */
   color: grey;
+  padding-right: 1%;
 }
 
 .add-task-form input {
@@ -24,6 +21,14 @@
   font-size: large;
 }
 
+.date-container {
+  display: flex;
+}
+
 #add-task-btn {
-  padding: 2% 43%;
+  padding: 2% 48%;
+}
+
+@media only screen and (min-width: 768px){
+
 }
