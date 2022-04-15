@@ -28,12 +28,9 @@ const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility})
     <>
     <form className='add-task-form' autoComplete='off' onSubmit={addToProject}>
       <div className='task-description'>
-        {/* <label htmlFor="description-input">
-        </label> */}
         <input 
-        autoFocus
         placeholder='Task Description'
-        type="text"
+        type="textarea"
         size={45}
         name='description'
         onChange={handleChange}

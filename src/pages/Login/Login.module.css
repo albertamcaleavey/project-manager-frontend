@@ -2,4 +2,11 @@
   display: flex;
   align-items: center;
   flex-direction: column;
+  height: 70vh;
+  place-content: center;
 }
+
+.title{
+  margin-top: 30%;
+}
+

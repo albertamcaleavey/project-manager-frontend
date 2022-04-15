@@ -1,12 +1,16 @@
 .delete-btn-container{
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
 }
 .delete-btn {
   background-color: transparent;
   border: 0;
   margin-bottom: 2%;
   font-size: large;
+}
+
+.back-link{
+  font-size: x-large;
 }
 
 #render-task-form-btn {
@@ -21,7 +25,6 @@
 
 .add-task-msg-container {
   display: grid;
-  /* width: 80%; */
 }
 
 .add-task-msg {

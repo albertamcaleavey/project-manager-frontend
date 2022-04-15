@@ -1,6 +1,6 @@
 import TaskCard from "./components/TaskCard";
 import AddTaskForm from "./components/AddTaskForm";
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { getOne } from '../../services/projectService'
 import './ProjectDetails.css'
@@ -31,6 +31,9 @@ const ProjectDetails = () => {
     <main>
 
     <div className="delete-btn-container">
+      <Link className="back-link" to={'/projects'}>
+        ←
+      </Link>
       <button
       className="delete-btn" 
       onClick={() => navigate(`/projects/${project?.id}/confirmation`, { state: project })}
