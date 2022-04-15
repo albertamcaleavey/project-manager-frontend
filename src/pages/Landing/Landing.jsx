@@ -5,7 +5,7 @@ const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
       <h1 className={styles.title} >Stay on track with TaskFlow</h1>
-      <Link to={'/signup'}>
+      <Link className={styles.signup} to={'/signup'}>
       <button className={styles.button}>Get Started</button>
       </Link>
       <img height={285} src="landing-graphic(1).png" alt="" />

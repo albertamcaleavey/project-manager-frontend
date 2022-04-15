@@ -91,11 +91,16 @@ const Calendar = ({ projects }) => {
       </div>
       <div className="todays-tasks-card">
         <h2>Today</h2>
-          <div>
+        {todaysTasks.length ?
+        <div>
             {todaysTasks?.map((task)=> (
               <p key={task.id}>◻︎ {task.description}</p>
             ))}
           </div>
+          :
+          <p>Nothing scheduled for today</p>
+          }
+          
       </div>
       <div className="list-cal-btn-container">
       <ListCalendarViewBtn />
