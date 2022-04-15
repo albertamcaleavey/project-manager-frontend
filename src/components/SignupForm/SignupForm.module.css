@@ -3,7 +3,6 @@
   flex-flow: column nowrap;
   justify-content: center;
   align-items: center;
-  margin-bottom: 50px;
 }
 
 .label,
@@ -13,4 +12,10 @@
 
 .inputContainer {
   margin-bottom: 1rem;
+}
+
+
+@media only screen and (min-width: 768px){
+
+
 }
