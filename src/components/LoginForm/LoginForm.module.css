@@ -44,7 +44,7 @@
 @media only screen and (min-width: 768px){
   .buttonContainer{
     display: grid;
-    width: 19%;
+    width: 16%;
   }
 
 }
