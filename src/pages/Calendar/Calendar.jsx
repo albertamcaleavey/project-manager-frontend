@@ -20,6 +20,7 @@ const Calendar = ({ projects }) => {
     daysOfMonth.push(today.getFullYear() + '-' + (currentMonth < 10? '0'+currentMonth.toString(): currentMonth.toString()) +'-'+ (i < 10 ? '0'+ i: i)) 
   }
 
+  
   useEffect(()=> {
     setDeadlines(projects?.map((project)=> {
       return new Date(project?.deadline).toISOString().split('T')[0]
@@ -31,70 +32,24 @@ const Calendar = ({ projects }) => {
         taskDates?.push(new Date(task?.date).toISOString().split('T')[0])
       })
       return taskDates
-    })[projects.length - 1])
-
-    setTodaysTasks(projects?.map((project) => {
-      let todaysTaskList = []
-      project?.tasks?.forEach((task) => {
-        if(new Date(task.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0]){
-          todaysTaskList.push(task)
-        }
-      })
-      return todaysTaskList
-    })[projects.length - 1])
-
-  }, [projects])
-
-  
-  useEffect(()=> {
-    let arrayOfArrays = projects?.map((project) => {
-      let taskDates = []
-      project?.tasks?.forEach((task) => {
-        taskDates?.push(new Date(task?.date).toISOString().split('T')[0])
-      })
-      console.log(taskDates)
-      return taskDates
-    })
-    setDeadlines(projects?.map((project)=> {
-      return new Date(project?.deadline).toISOString().split('T')[0]
-    }))
-
-    setTaskDates(arrayOfArrays.reduce((prev, curr)=> {
+    }).reduce((prev, curr)=> {
       return prev.concat(curr)
     }, []))
 
     setTodaysTasks(projects?.map((project) => {
       let todaysTaskList = []
       project?.tasks?.forEach((task) => {
-        if(new Date(task.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0]){
+        if(moment(task?.date).format('L') === moment().format('L')) {
           todaysTaskList.push(task)
         }
       })
-      // console.log(todaysTaskList)
       return todaysTaskList
-    })[projects.length - 1])
+    }).reduce((prev, curr)=> {
+      return prev.concat(curr)
+    }, []))
 
   }, [projects])
 
-
-
-  // let test = projects?.map((project) => {
-  //   let taskDates = []
-  //   project?.tasks?.forEach((task) => {
-  //     console.log(task.date)
-  //     return taskDates?.push(task?.date)
-  //   }, [0])
-  //   // console.log(newArray)
-  //   // console.log(taskDates)
-  //   return taskDates
-  // })
-
-
-//     let testReduce = test.reduce((prev, curr)=> {
-//     return prev.concat(curr)
-//   }, [])
-
-// console.log(testReduce)
 
   let daysWithDeadlines = daysOfMonth?.map((date) => {
     let formattedDate = date.split('').splice(8, 2).join('')
