@@ -28,16 +28,20 @@ const ProjectList = ({ projects }) => {
       </>
       :
       <>
-      <div>
-        Add a new project!
+      <Link className="btn-container" to={'/add-project'}>
+        <button className="add-btn-mobile">+</button>
+      </Link>
+      <Link className="btn-container" to={'/add-project'}>
+        <button className="add-btn-desktop">New Project</button>
+      </Link>
+      <div className="animate__animated animate__pulse animate__infinite animate__slower add-task-msg-container">
+      <div className="arrow">
+      ↗
       </div>
-      <Link to={'/add-project'}>
-        <button className="add-project-btn">+</button>
-      </Link>
-
-      <Link to={'/add-project'}>
-        <button className="add-project-btn">+</button>
-      </Link>
+    </div>
+    <div className="add-task-msg">
+      Add a Project
+    </div>
       </>
     }
     </main>

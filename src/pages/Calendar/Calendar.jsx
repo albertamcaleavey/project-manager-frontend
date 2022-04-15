@@ -6,7 +6,7 @@ import { useState, useEffect } from 'react'
 
 const Calendar = ({ projects }) => {
   const [deadlines, setDeadlines] = useState([])
-  const [taskDays, setTaskDays] = useState([])
+  const [taskDates, setTaskDates] = useState([])
   const [todaysTasks, setTodaysTasks] = useState([])
   const months = ["January","February","March","April","May","June","July","August","September","October","November","December"]
   let month = months[new Date().getMonth()]
@@ -25,7 +25,7 @@ const Calendar = ({ projects }) => {
       return new Date(project?.deadline).toISOString().split('T')[0]
     }))
 
-    setTaskDays(projects?.map((project) => {
+    setTaskDates(projects?.map((project) => {
       let taskDates = []
       project?.tasks?.forEach((task) => {
         taskDates?.push(new Date(task?.date).toISOString().split('T')[0])
@@ -45,10 +45,60 @@ const Calendar = ({ projects }) => {
 
   }, [projects])
 
+  
+  useEffect(()=> {
+    let arrayOfArrays = projects?.map((project) => {
+      let taskDates = []
+      project?.tasks?.forEach((task) => {
+        taskDates?.push(new Date(task?.date).toISOString().split('T')[0])
+      })
+      console.log(taskDates)
+      return taskDates
+    })
+    setDeadlines(projects?.map((project)=> {
+      return new Date(project?.deadline).toISOString().split('T')[0]
+    }))
+
+    setTaskDates(arrayOfArrays.reduce((prev, curr)=> {
+      return prev.concat(curr)
+    }, []))
+
+    setTodaysTasks(projects?.map((project) => {
+      let todaysTaskList = []
+      project?.tasks?.forEach((task) => {
+        if(new Date(task.date).toISOString().split('T')[0] === new Date().toISOString().split('T')[0]){
+          todaysTaskList.push(task)
+        }
+      })
+      // console.log(todaysTaskList)
+      return todaysTaskList
+    })[projects.length - 1])
+
+  }, [projects])
+
+
+
+  // let test = projects?.map((project) => {
+  //   let taskDates = []
+  //   project?.tasks?.forEach((task) => {
+  //     console.log(task.date)
+  //     return taskDates?.push(task?.date)
+  //   }, [0])
+  //   // console.log(newArray)
+  //   // console.log(taskDates)
+  //   return taskDates
+  // })
+
+
+//     let testReduce = test.reduce((prev, curr)=> {
+//     return prev.concat(curr)
+//   }, [])
+
+// console.log(testReduce)
 
   let daysWithDeadlines = daysOfMonth?.map((date) => {
     let formattedDate = date.split('').splice(8, 2).join('')
-    let checkTaskDate = taskDays?.some((taskDate)=> {
+    let checkTaskDate = taskDates?.some((taskDate)=> {
       return taskDate === date
     })
 

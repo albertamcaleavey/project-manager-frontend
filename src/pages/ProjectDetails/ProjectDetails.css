@@ -6,20 +6,47 @@
   background-color: transparent;
   border: 0;
   margin-bottom: 2%;
+  font-size: large;
 }
 
 #render-task-form-btn {
   padding: 2%;
   align-self: flex-end;
-}
+}   
 
 .todo-container {
   display: flex;
   justify-content: space-between;
 }
 
+.add-task-msg-container {
+  display: grid;
+  /* width: 80%; */
+}
+
+.add-task-msg {
+  place-self: end;
+  font-size: large;
+  margin-right: 25%;
+}
+
+.arrow {
+  place-self: end;
+  font-size: x-large;
+  margin-right: 20%;
+}
+
+
+
 @media only screen and (min-width: 768px){
   #render-task-form-btn {
     padding: 1%;
+  }
+  .add-task-msg {
+    margin-right: 12%;
+  }
+
+  .arrow {
+    margin-right: 10%;
   }
 }

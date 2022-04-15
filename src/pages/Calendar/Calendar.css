@@ -1,5 +1,5 @@
 main {
-  margin-bottom: 20%;
+  padding-bottom: 20%;
 }
 
 .calendar-container {
@@ -20,6 +20,9 @@ main {
 
 
 @media only screen and (min-width: 768px){
+  main {
+    padding-bottom: 10%;
+  }
 
 }
 

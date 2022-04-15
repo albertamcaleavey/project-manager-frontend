@@ -7,9 +7,9 @@ nav ul {
   color: white;
 }
 
-/* li {
-  font-size: large;
-} */
+.page-title {
+  font-weight: 600;
+}
 
 nav {
   padding: 1% 3% 1% 3%;

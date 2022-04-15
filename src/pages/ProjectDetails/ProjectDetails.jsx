@@ -4,6 +4,7 @@ import { useParams, useNavigate } from "react-router-dom";
 import { useEffect, useState } from 'react'
 import { getOne } from '../../services/projectService'
 import './ProjectDetails.css'
+import 'animate.css'
 
 const ProjectDetails = () => {
   const { id } = useParams()
@@ -62,9 +63,20 @@ const ProjectDetails = () => {
       ))}      
     </div>
     :
+    <>
     <div>
-      Add a task!
+      No tasks to work on yet
     </div>
+
+    <div className="animate__animated animate__pulse animate__infinite animate__slower add-task-msg-container">
+      <div className="arrow">
+      ↗
+      </div>
+    </div>
+    <div className="add-task-msg">
+      Add a task
+    </div>
+    </>
     }
     </main>
   );
