@@ -1,9 +1,14 @@
 import styles from './Landing.module.css'
+import { Link } from 'react-router-dom'
 
 const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
-      <h1>hello, {user ? user.name : 'friend'}</h1>
+      <h1 className={styles.title} >Stay on track with TaskFlow</h1>
+      <Link to={'/signup'}>
+      <button className={styles.button}>Get Started</button>
+      </Link>
+      <img height={285} src="landing-graphic(1).png" alt="" />
     </main>
   )
 }

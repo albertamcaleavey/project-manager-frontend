@@ -32,11 +32,11 @@ const NavBar = ({ user, handleLogout, projects }) => {
           </ul>
         </nav>
       :
-        <nav>
-          <ul>
-            <li><Link to="/login">Log In</Link></li>
-            <li><Link to="/signup">Sign Up</Link></li>
-          </ul>
+        <nav className='guest-nav' >
+          <img height={40} src="taskflow-logo.png" alt="taskflow-logo" />
+          <div className='guest-links'>
+            <Link to="/login">Log In</Link>
+          </div>
         </nav>
       }
     </>

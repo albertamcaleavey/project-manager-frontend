@@ -24,3 +24,15 @@ a {
 .logout-link{
   color: white;
 }
+
+.guest-nav{
+  background-color: transparent;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.guest-links{
+  font-weight: 600;
+}
+
