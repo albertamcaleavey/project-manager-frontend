@@ -33,7 +33,7 @@ const NavBar = ({ user, handleLogout, projects }) => {
         </nav>
       :
         <nav className='guest-nav' >
-          <img height={40} src="taskflow-logo.png" alt="taskflow-logo" />
+          <img height={34} src="taskflow-logo.png" alt="taskflow-logo" />
           <div className='guest-links'>
             <Link to="/login">Log In</Link>
           </div>

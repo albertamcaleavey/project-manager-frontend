@@ -35,6 +35,7 @@ const LoginForm = props => {
       <div className={styles.inputContainer}>
         <label htmlFor="email" className={styles.label}></label>
         <input
+          className={styles.logininput}
           max={40}
           placeholder='email'
           type="text"
@@ -50,6 +51,7 @@ const LoginForm = props => {
         <input
         placeholder='password'
           type="password"
+          className={styles.logininput}
           autoComplete="off"
           id="password"
           value={formData.password}

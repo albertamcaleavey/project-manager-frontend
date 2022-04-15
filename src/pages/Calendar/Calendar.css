@@ -4,7 +4,6 @@ main {
 }
 
 .calendar-container {
-  /* border: 1px solid rgb(243, 26, 26); */
   display: grid;
   grid-template: repeat(5, 20%) / repeat(7, 14.28%) ;
   min-height: 50vh;
@@ -21,8 +20,10 @@ main {
 }
 
 .todays-tasks-card{
-  border-top: 1px solid grey;
   padding: 3%;
+  box-shadow: 3px 3px 7px 2px rgb(202, 202, 202);
+  border-radius: 4px;
+  min-height: 30vh;
 }
 
 

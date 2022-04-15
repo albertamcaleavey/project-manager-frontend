@@ -11,7 +11,6 @@
 }
 
 .add-task-form label {
-  /* font-size: large; */
   color: grey;
   padding-right: 1%;
 }
@@ -30,5 +29,7 @@
 }
 
 @media only screen and (min-width: 768px){
-
+  #add-task-btn {
+    padding: 1% 20%;
+  }
 }

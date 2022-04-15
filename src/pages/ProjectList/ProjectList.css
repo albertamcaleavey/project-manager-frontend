@@ -7,10 +7,10 @@
 }
 
 .add-btn-mobile{
-  background-color: rgb(79,129,254);
   border-radius: 50%;
-  border: 0;
-  color: white;
+  background-color: rgba(79, 129, 254, 0.15);
+  border: 1px solid rgb(79,129,254);
+  color: rgb(79,129,254);
   font-size: x-large;
 }
 .add-btn-desktop {
@@ -27,6 +27,15 @@ main {
   bottom: 5%;
   width: 100%;
 }
+.no-proj-msg{
+  margin-top: 10%;
+  margin-left: 25%;
+  border-radius: 4px;
+  box-shadow: 3px 3px 7px 2px rgb(202, 202, 202);
+  padding: 3%;
+  width: 50%;
+  text-align: center;
+}
 
 @media only screen and (min-width: 768px){
   .project-list-container {
@@ -42,9 +51,9 @@ main {
   .add-btn-desktop {
     display: flex;
     border-radius: 5px;
-    border: 0;
-    background-color: rgb(79,129,254);
-    color: white;
     padding: 1% 2%;
+  background-color: rgba(79, 129, 254, 0.15);
+  border: 1px solid rgb(79,129,254);
+  color: rgb(79,129,254);
   }
 }

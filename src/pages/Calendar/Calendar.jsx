@@ -62,14 +62,14 @@ const Calendar = ({ projects }) => {
     })
 
     if(checkTaskDate === true && checkDeadlineDate === true){
-      return (`${formattedDate} ⭐️🔵`)
+      return (`${formattedDate} ⭐️📌`)
     } 
 
     if(checkDeadlineDate === true){
       return (`${formattedDate} ⭐️`)
     } 
     if(checkTaskDate === true){
-      return (`${formattedDate} 🔵`)
+      return (`${formattedDate} 📌`)
     } 
     else {
       return (formattedDate)
@@ -87,7 +87,7 @@ const Calendar = ({ projects }) => {
       </div>
     <div className="calendar-key">
         <p>⭐️ Project Deadline</p>
-        <p>🔵 Task Scheduled </p>
+        <p>📌 Task Scheduled </p>
       </div>
       <div className="todays-tasks-card">
         <h2>Today</h2>

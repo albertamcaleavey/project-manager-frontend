@@ -1,6 +1,6 @@
 # TaskFlow  
 
-TaskFlow is a project management tool. Create projects and tasks to track your workflow and stay organized.
+TaskFlow is a project management tool. Users can create projects and tasks to track their work, stay organized and keep on top of deadlines.
 
 # Getting Started
 
@@ -8,7 +8,10 @@ Click [here](https://taskflow-am.netlify.app/) to view the app.
 
 
 # Screenshots
-
+![landing](public/landing.png)
+![projects](public/project-list.png)  
+![project details](public/project-details.png)  
+  
 
 
 
@@ -39,4 +42,5 @@ Click [here](https://taskflow-am.netlify.app/) to view the app.
 - [ ] Users can click a date on the calendar to view tasks for that specific day
 - [ ] Users can edit their projects
 - [ ] Sort tasks and projects by date
+- [ ] Add app screen shots to landing page 
 

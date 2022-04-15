@@ -51,7 +51,7 @@ const ProjectDetails = () => {
     ''
     }
     <div className="todo-container">
-    <h2>To Do:</h2>
+    <h2>To Do</h2>
     {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >New Task</button> : ''}
     </div>
     {project?.tasks?.length ?
@@ -67,10 +67,6 @@ const ProjectDetails = () => {
     </div>
     :
     <>
-    <div>
-      No tasks to work on yet
-    </div>
-
     <div className="animate__animated animate__pulse animate__infinite animate__slower add-task-msg-container">
       <div className="arrow">
       ↗

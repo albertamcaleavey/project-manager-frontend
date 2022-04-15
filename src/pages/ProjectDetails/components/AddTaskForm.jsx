@@ -31,7 +31,7 @@ const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility})
         <input 
         placeholder='Task Description'
         type="textarea"
-        size={45}
+        size={47}
         name='description'
         onChange={handleChange}
         required

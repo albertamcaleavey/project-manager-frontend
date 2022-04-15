@@ -11,7 +11,7 @@
 
 .buttonContainer{
   display: grid;
-  width: 47%;
+  width: 31%;
 }
 
 .button{
@@ -33,7 +33,7 @@
   padding: 2% 2%;
 }
 
-input {
+.logininput {
   width: 200px;
   padding: 2%;
   background-color: rgb(246, 246, 246);

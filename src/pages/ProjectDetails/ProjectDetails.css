@@ -16,6 +16,9 @@
 #render-task-form-btn {
   padding: 2%;
   align-self: flex-end;
+  background-color: rgba(79, 129, 254, 0.15);
+  border: 1px solid rgb(79,129,254);
+  color: rgb(79,129,254);
 }   
 
 .todo-container {

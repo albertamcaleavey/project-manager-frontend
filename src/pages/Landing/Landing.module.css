@@ -5,8 +5,9 @@
 }
 
 .title {
-  font-size: 3rem;
+  font-size: 2rem;
   text-align: center;
+  margin-top: 10%;
 }
 
 .button{
@@ -27,5 +28,10 @@
 @media only screen and (min-width: 768px){
   .button{
     padding: 1% 1%;
+  }
+  .title {
+    margin-top: 5%;
+    width: 60%;
+    font-size: 3rem;
   }
 }

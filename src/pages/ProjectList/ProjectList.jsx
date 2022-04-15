@@ -42,6 +42,11 @@ const ProjectList = ({ projects }) => {
     <div className="add-task-msg">
       Add a Project
     </div>
+      <div className="no-proj-msg">
+      <p>
+        Welcome to your workspace. Add a project to get started.
+      </p>
+      </div>
       </>
     }
     </main>

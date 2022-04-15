@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom'
 const Landing = ({ user }) => {
   return (
     <main className={styles.container}>
-      <h1 className={styles.title} >Stay on track with TaskFlow</h1>
+      <h1 className={styles.title} >Organize your projects with TaskFlow</h1>
       <Link className={styles.signup} to={'/signup'}>
       <button className={styles.button}>Get Started</button>
       </Link>
