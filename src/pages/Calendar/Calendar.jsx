@@ -89,11 +89,11 @@ const Calendar = ({ projects }) => {
         <p>⭐️ Project Deadline</p>
         <p>🔵 Task Scheduled </p>
       </div>
-      <div>
+      <div className="todays-tasks-card">
         <h2>Today</h2>
           <div>
             {todaysTasks?.map((task)=> (
-              <p key={task.id}>{task.description}</p>
+              <p key={task.id}>◻︎ {task.description}</p>
             ))}
           </div>
       </div>

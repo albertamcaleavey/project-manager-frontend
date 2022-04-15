@@ -13,13 +13,15 @@ const DeleteConfirmation = ({ handleDeleteProject }) => {
 
   return (
     <>
-    <main>
+    <main className='confirmation-main'>
       <section className="confirmation">
-        <h2>Are you sure you want to delete {state?.name}?</h2>
+        <h3>Are you sure you want to delete {state?.name}?</h3>
+        <div>
+        <button onClick={handleDelete} type="button" className="delete-confirm-btn">Delete</button>
+        </div>
         <Link className="btn submit" to={`/projects/${id}`}>
           <button className='cancel-delete-btn'> Cancel</button>
         </Link>
-        <button onClick={handleDelete} type="button" className="delete-confirm-btn">Yes - Delete</button>
       </section>
     </main>
     </>
