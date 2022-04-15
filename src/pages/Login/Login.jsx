@@ -22,7 +22,6 @@ const LoginPage = props => {
         Don't have an account? <Link className={styles.signupLink} to={'/signup'}>Sign Up
       </Link>
       </div>
-      
     </main>
   )
 }

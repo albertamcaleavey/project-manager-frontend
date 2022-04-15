@@ -25,7 +25,6 @@ const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility})
   }
 
   return ( 
-    <>
     <form className='add-task-form' autoComplete='off' onSubmit={addToProject}>
       <div className='task-description'>
         <input 
@@ -55,7 +54,6 @@ const AddTaskForm = ({project, setProject, setformVisibility, setBtnVisibility})
         >Add
         </button>
     </form>
-    </>
    );
 }
  

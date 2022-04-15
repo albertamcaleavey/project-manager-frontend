@@ -24,8 +24,8 @@ const AddProjectForm = (props) => {
       to={'/projects'}
       >x</Link>
     <form 
-    autoComplete='off'
-    onSubmit={handleSubmit}
+      autoComplete='off'
+      onSubmit={handleSubmit}
     >
       <div>
         <label 
@@ -62,7 +62,6 @@ const AddProjectForm = (props) => {
         <button 
         className='add-btn'
         type="submit"
-        // disabled={!validForm}
         >
           Add
         </button>

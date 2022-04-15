@@ -1,23 +1,6 @@
 import * as tokenService from './tokenService'
 const BASE_URL = `${process.env.REACT_APP_API_URL}/api/projects/`
 
-// export const create = async (project) => {
-//   try {
-//     const res = await fetch(BASE_URL, {
-//       method: "POST",
-//       headers: {
-//         'content-type': 'application/json',
-//         'Authorization': `Bearer ${tokenService.getToken()}`
-//       },
-//       body: JSON.stringify(project),
-//     })
-//     return await res.json()
-//   } catch (error) {
-//     console.log(error)
-//     throw error
-//   }
-// }
-
 function create(project) {
   try {
     return fetch(BASE_URL, {
@@ -35,7 +18,6 @@ function create(project) {
   }
 }
 
-// get all projects into state
 function getAll() {
   try {
     return fetch(BASE_URL)
@@ -45,7 +27,6 @@ function getAll() {
   }
 }
 
-// get one project
 function getOne(id) {
   try {
     return fetch(`${BASE_URL}${id}`)
@@ -55,10 +36,9 @@ function getOne(id) {
   }
 }
 
-// add task
-export const addTask = async (id, data) => {
+function addTask(id, data){
   try {
-    const res = await fetch(`${BASE_URL}${id}/tasks`, {
+    return fetch(`${BASE_URL}${id}/tasks`, {
       method: "POST",
       headers: {
         "Content-Type": "application/json",
@@ -66,26 +46,28 @@ export const addTask = async (id, data) => {
       },
       body: JSON.stringify(data),
     })
-    return await res.json()
+    .then(res => res.json())
   } catch (error) {
     throw error
   }
 }
 
-export const deleteOne = async (id) => {
+function deleteOne(id){
   try {
-    const res = await fetch(`${BASE_URL}${id}`, {
+    return fetch(`${BASE_URL}${id}`, {
       method: "DELETE",
       headers: { 'Authorization': `Bearer ${tokenService.getToken()}` }
     })
-    return await res.json()
+    .then(res => res.json())
   } catch (error) {
     throw error
   }
 }
 
 export {
-  getAll,
   create,
-  getOne,  
+  getAll,
+  getOne, 
+  addTask,
+  deleteOne
 }

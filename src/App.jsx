@@ -19,8 +19,6 @@ const App = () => {
 
   const navigate = useNavigate()
 
-  //--------------------------------------------
-  // add created projects to the database 
   const handleAddProject = newProjectData => {
     projectService.create(newProjectData)
     .then(newProject => setProjects([...projects, newProject]))
@@ -37,9 +35,9 @@ const App = () => {
     )
   }, [user?.id])
 
-const handleDeleteProject = async (id) => {
-  await projectService.deleteOne(id)
-	setProjects(projects.filter(project => project.id !== parseInt(id)))
+const handleDeleteProject = id => {
+  projectService.deleteOne(id)
+	.then(setProjects(projects.filter(project => project.id !== parseInt(id))))
   navigate('/projects')
 }
 

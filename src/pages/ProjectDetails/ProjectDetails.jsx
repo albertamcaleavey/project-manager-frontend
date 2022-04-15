@@ -29,7 +29,6 @@ const ProjectDetails = () => {
 
   return (  
     <main>
-
     <div className="delete-btn-container">
       <Link className="back-link" to={'/projects'}>
         ←
@@ -39,7 +38,6 @@ const ProjectDetails = () => {
       onClick={() => navigate(`/projects/${project?.id}/confirmation`, { state: project })}
       >🗑</button>
     </div>
-    
     {formVisibility ? 
     <AddTaskForm 
     project={project} 
@@ -51,8 +49,8 @@ const ProjectDetails = () => {
     ''
     }
     <div className="todo-container">
-    <h2>To Do</h2>
-    {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >New Task</button> : ''}
+      <h2>To Do</h2>
+      {btnVisibility ? <button onClick={handleClick} className="add-btn" id="render-task-form-btn" >New Task</button> : ''}
     </div>
     {project?.tasks?.length ?
     <div>

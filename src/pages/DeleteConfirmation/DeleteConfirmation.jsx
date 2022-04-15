@@ -12,7 +12,6 @@ const DeleteConfirmation = ({ handleDeleteProject }) => {
   }
 
   return (
-    <>
     <main className='confirmation-main'>
       <section className="confirmation">
         <h3>Are you sure you want to delete {state?.name}?</h3>
@@ -24,7 +23,6 @@ const DeleteConfirmation = ({ handleDeleteProject }) => {
         </Link>
       </section>
     </main>
-    </>
   )
 }
 
