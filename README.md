@@ -8,9 +8,12 @@ Click [here](https://taskflow-am.netlify.app/) to view the app.
 
 
 # Screenshots
-![landing](public/landing.png)
+![landing](public/landing.png)  
+Landing page
 ![projects](public/project-list.png)  
+Project List View
 ![calendar](public/calendar.png)  
+Project Calendar View
   
 
 
@@ -39,6 +42,6 @@ Click [here](https://taskflow-am.netlify.app/) to view the app.
 - [ ] Users can click a date on the calendar to view tasks for that specific day
 - [ ] Users can edit their projects
 - [ ] Sort tasks and projects by date
-- [ ] Add app screen shots to landing page
+- [ ] Add app screenshots to landing page for preview of app's features
 - [ ] Implement light/ dark mode 
 
